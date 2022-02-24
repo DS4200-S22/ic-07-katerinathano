@@ -32,3 +32,10 @@ body {
   border: 0px;
   border-radius: 8px;
 }
+
+/* Centers divs and makes them 80% width of the page*/
+div {
+  text-align: center;
+  width: 80%;
+
+}
