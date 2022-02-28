@@ -131,7 +131,7 @@ svg1.selectAll(".bar")
 
 
 
-const data2 = d3.csv("data/barchart.csv")
+
 
 
 // Creates a smaller svg window in the csv bar div
@@ -141,6 +141,10 @@ const svg2 = d3
 .attr("width", width-margin.left-margin.right)
 .attr("height", height - margin.top - margin.bottom)
 .attr("viewBox", [0, 0, width, height]);
+
+const data2 = d3.csv("data/barchart.csv").then(data2 => {
+
+
 
 // Sets the maximum vertical point
 let maxY2 = d3.max(data2, function(d) { return d.score; });
@@ -173,14 +177,6 @@ svg2.append("g")
             .tickFormat(i => data2[i].name))  
     .attr("font-size", '20px'); 
 
-// creates the tooltip
-const tooltip2 = d3.select("#csv-bar") 
-                .append("div") 
-                .attr('id', "tooltip2") 
-                .style("opacity", 0) 
-                .attr("class", "tooltip"); 
-
-
 
 svg1.selectAll(".bar") 
    .data(data2) 
@@ -194,3 +190,5 @@ svg1.selectAll(".bar")
      .on("mouseover", mouseover1) 
      .on("mousemove", mousemove1)
      .on("mouseleave", mouseleave1);
+
+    });
