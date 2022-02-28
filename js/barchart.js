@@ -180,23 +180,7 @@ const tooltip2 = d3.select("#csv-bar")
                 .style("opacity", 0) 
                 .attr("class", "tooltip"); 
 
-// Creates an information pop up when a user hovers over each bar with information
-// about that bar 
-const mouseover2 = function(event, d) {
-  tooltip1.html("Name: " + d.name + "<br> Score: " + d.score + "<br>") 
-          .style("opacity", 1);  
-}
 
-// Moves the information pop up to where the mouse moves.
-const mousemove2 = function(event, d) {
-  tooltip1.style("left", (event.x)+"px") 
-          .style("top", (event.y + yTooltipOffset) +"px"); 
-}
-
-// When the mouse is not hovering a bar, the pop up disappears.
-const mouseleave2 = function(event, d) { 
-  tooltip1.style("opacity", 0); 
-}
 
 svg1.selectAll(".bar") 
    .data(data2) 
@@ -207,6 +191,6 @@ svg1.selectAll(".bar")
      .attr("y", (d) => yScale2(d.score)) 
      .attr("height", (d) => (height - margin.bottom) - yScale2(d.score)) 
      .attr("width", xScale1.bandwidth()) 
-     .on("mouseover", mouseover2) 
-     .on("mousemove", mousemove2)
-     .on("mouseleave", mouseleave2);
+     .on("mouseover", mouseover1) 
+     .on("mousemove", mousemove1)
+     .on("mouseleave", mouseleave1);
